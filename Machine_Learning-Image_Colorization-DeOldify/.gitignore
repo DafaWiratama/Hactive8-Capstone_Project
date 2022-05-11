@@ -1,0 +1,7 @@
+/venv/
+/dummy/
+/test_images/*.*
+/result_images/*.*
+/models/*
+.idea/
+/resource_images/*

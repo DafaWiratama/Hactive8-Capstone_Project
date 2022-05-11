@@ -1,0 +1,58 @@
+<div class="flex flex-col h-screen w-screen">
+  <app-navbar class="flex-initial"></app-navbar>
+
+  <article class="flex-auto flex flex-col md:flex-row p-8 md:mx-auto w-full text-white">
+    <div class="flex-auto flex h-full" [class.hidden]="input_image_url">
+      <div class="m-auto flex flex-col text-center">
+        <input
+          #fileInput
+          type="file"
+          class="mb-4 rounded-xl border-dashed border-2 p-8 hover:bg-white hover:text-gray-800 hover:border-opacity-0 cursor-pointer duration-500"
+          [multiple]="false"
+          (change)="onFileChange($event)"/>
+        Drag and drop your files here or click to select files
+      </div>
+    </div>
+
+    <div class="flex flex-auto m-auto px-8" [class.hidden]="!input_image">
+      <canvas #canvas class="m-auto w-full md:w-auto md:h-[80vh] rounded-xl shadow-xl shadow-neutral-900" [class.animate-pulse]="is_loading" width="1024px" height="1024px" (mousemove)="onMouseOver($event)" [hidden]="!input_image">
+      </canvas>
+    </div>
+
+    <div class="flex-initial w-full md:w-96 flex flex-col">
+      <div class="">
+        <span class="text-lg font-bold">Control Panel</span>
+        <div class="rounded-lg px-4 py-3 bg-gray-500 shadow-xl mt-2">
+          <div class="flex flex-col">
+            <span class="pb-1 text-sm">AI Type : </span>
+            <mat-select #select (click)="select.open()" [(ngModel)]="selected_option" [disabled]="is_loading" class="cursor-pointer appearance-none w-full bg-gray-400 border border-gray-500 text-gray-700 py-3 px-4 rounded focus:outline-none focus:bg-white focus:border-gray-500">
+              <mat-option [value]="option" *ngFor="let option of options">{{option.key}}</mat-option>
+            </mat-select>
+
+            <p class="mt-4 px-2 text-sm">{{selected_option.desc}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-row space-x-4">
+        <div *ngIf="!result_image && input_image && !is_loading" (click)="onSubmit()"
+             class="flex-auto rounded-lg px-4 py-2 bg-blue-500 shadow-xl mt-2 text-center font-medium hover:bg-blue-700 cursor-pointer">
+          Process
+        </div>
+        <div *ngIf="is_loading" class="flex-auto rounded-lg px-4 py-2 bg-gray-700 shadow-xl mt-2 text-center font-medium animate-pulse">
+          Processing...
+        </div>
+        <div *ngIf="result_image" class="flex-auto rounded-lg px-4 py-2 bg-blue-500 shadow-xl mt-2 text-center font-medium cursor-pointer" (click)="onSetCurrentAsInput()">
+          Set as Input
+        </div>
+        <div *ngIf="result_image" class="flex-auto rounded-lg px-4 py-2 bg-blue-500 shadow-xl mt-2 text-center font-medium cursor-pointer" (click)="onDownload()">
+          Download
+        </div>
+      </div>
+    </div>
+    <div *ngIf="input_image_url && !is_loading" (click)="onResetState()"
+         class="absolute overflow-hidden shadow-xl rounded-tl-lg rounded-b-full rounded-tr-full  bg-red-400 w-12 h-12 flex cursor-pointer hover:bg-red-500">
+      <img src="assets/ic_close.svg" class="m-auto p-2 w-8 h-8"/>
+    </div>
+  </article>
+</div>

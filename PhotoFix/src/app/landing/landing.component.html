@@ -1,0 +1,337 @@
+<div class="h-screen flex flex-col relative">
+  <app-navbar class="flex-initial fixed top-0 z-50 w-full"></app-navbar>
+
+  <div class="flex-auto max-h-full">
+    <article class="container p-4 text-white mx-auto">
+      <section class="h-screen flex mx-auto">
+        <div class="my-auto mx-8">
+          <p class="font-medium text-3xl md:text-5xl">
+            Your Images. <br class="md:hidden">{{text_display_prefix}}
+            <span class="font-bold">{{text_display}}</span>
+            <span class="cursor">|</span>
+          </p>
+          <p class="pt-4 text-gray-400">Powerful AI to increase image resolution without quality loss.</p>
+        </div>
+      </section>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 gap-y-4 md:mx-16">
+        <div class="md:col-span-2 md:row-span-2">
+          <image-comparison-component
+            class="rounded-2xl shadow-xl"
+            left_src="/assets/upscale_sample_1_lr.png"
+            right_src="/assets/upscale_sample_1_hr.png">
+            <div class="flex flex-col p-8 py-6 h-full">
+              <p class="text-4xl font-bold">Super Resolution</p>
+              <p class="font-medium mt-2">Make your photo look like captured by professional camera with
+                high-resolution. </p>
+              <p class="font-light mt-8 mb-auto">AI Super Resolution delivering enchanced detail</p>
+              <a routerLink="/Console"
+                 class="text-xl rounded-full outline outline-1 outline-white pb-3 pt-3 px-8 mr-auto hover:bg-white hover:text-black">Try
+                Now</a>
+            </div>
+          </image-comparison-component>
+        </div>
+        <image-comparison-component
+          class="rounded-2xl shadow-xl"
+          left_src="/assets/recolor_sample_1_lr.png"
+          right_src="/assets/recolor_sample_1_hr.png">
+          <div
+            class="flex flex-col p-5 py-4 h-full bg-black bg-opacity-60 group hover:bg-opacity-0 transition duration-300">
+            <p class="text-2xl font-bold md:group-hover:invisible">Color Restoration</p>
+            <p class="font-medium mt-2 md:group-hover:invisible">Bring your old photo back to life.</p>
+            <p class="font-light mt-8 mb-auto md:group-hover:invisible">AI Color Restoration turning black-and-white old photo into colorful photo and more detail.</p>
+            <a routerLink="/Console"
+               class="rounded-full outline outline-1 outline-white pb-2 pt-2 px-6 mr-auto group-hover:bg-blue-500 group-hover:outline-0">Try
+              Now</a>
+          </div>
+        </image-comparison-component>
+        <image-comparison-component
+          class="rounded-2xl shadow-xl"
+          left_src="/assets/denoise_sample_1_lr.png"
+          right_src="/assets/denoise_sample_1_hr.png">
+          <div
+            class="flex flex-col p-5 py-4 h-full bg-black bg-opacity-60 group hover:bg-opacity-0 transition duration-300">
+            <p class="text-2xl font-bold group-hover:invisible">Denoiser</p>
+            <p class="font-medium mt-2 group-hover:invisible">Clean all the noise from your photo</p>
+            <p class="font-light mt-8 mb-auto group-hover:invisible">AI Denoiser change your photo to be cleaner and better texture.</p>
+            <a routerLink="/Console"
+               class="rounded-full outline outline-1 outline-white pb-2 pt-2 px-6 mr-auto group-hover:bg-blue-500 group-hover:outline-0">Try
+              Now</a>
+          </div>
+        </image-comparison-component>
+      </div>
+    </article>
+
+    <article class="">
+      <section class="md:container mx-4 md:mx-auto md:px-32 pb-32">
+        <div class="flex flex-col">
+          <img class="mx-auto h-24 md:h-32 mt-24 mb-8" src="/assets/memories.png" alt="">
+
+          <div id="carouselExampleControls" class="carousel slide relative  rounded-xl overflow-hidden shadow-xl"
+               data-bs-ride="carousel">
+            <div class="carousel-inner relative w-full overflow-hidden">
+              <div class="carousel-item relative float-left w-full" [class.active]="i == 0"
+                   *ngFor="let item of memories;let i = index">
+                <img src="{{item.hr}}" class="block w-full object-cover h-[36rem] rounded-xl" alt="Wild Landscape"/>
+
+                <img src="{{item.lr}}"
+                     class="absolute rounded-xl bottom-[2rem] left-[2rem] object-cover h-[12rem] shadow-xl"
+                     alt="Wild Landscape"/>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <div class="text-center text-4xl font-light text-white mt-8">"The memories we make with our family is everything"</div>
+          <div class="text-center text-2xl text-white">- Candace Cameron Bure -</div>
+
+        </div>
+      </section>
+    </article>
+
+    <article class="bg-gray-200 mt-16 py-16 shadow-md">
+      <section class="md:container mx-4 md:mx-auto md:px-32">
+        <div class="relative pb-8 md:pb-16">
+          <img class="md:h-[32rem] rounded-xl shadow-md" src="/assets/Oodls.jpg" alt="">
+          <div class="flex flex-col md:absolute bottom-0 right-0">
+            <h1 class="ml-auto p-4 text-4xl font-medium capitalize text-gray-600">Increase resolution</h1>
+            <div class="rounded-xl bg-gray-800 md:w-[48rem] p-8 text-lg text-gray-200 shadow-xl">
+              <svg class="h-8 mb-4 fill-gray-300" viewBox="0 0 116 35" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M72.026 21.374C72.0212 20.1529 71.5322 18.9836 70.6662 18.1227C69.8002 17.2618 68.6281 16.7796 67.407 16.782C66.1861 16.7854 65.0164 17.2731 64.1546 18.1379C63.2927 19.0027 62.8092 20.1741 62.81 21.395C62.8121 22.3061 63.0841 23.1962 63.5917 23.9529C64.0993 24.7095 64.8198 25.2988 65.6621 25.6462C66.5044 25.9936 67.4308 26.0837 68.3242 25.9049C69.2177 25.7262 70.0381 25.2867 70.682 24.642C71.11 24.2123 71.4491 23.7024 71.6797 23.1414C71.9103 22.5805 72.028 21.9795 72.026 21.373V21.374ZM3.56798 3.352C4.04196 3.33086 4.51513 3.40885 4.95725 3.58101C5.39937 3.75316 5.80069 4.01568 6.13557 4.35178C6.47044 4.68788 6.7315 5.09016 6.90204 5.5329C7.07258 5.97564 7.14885 6.4491 7.12598 6.923C7.17198 7.881 6.81198 8.823 6.13398 9.493C5.45598 10.163 4.52398 10.533 3.56698 10.49C3.09304 10.5118 2.61976 10.4345 2.1774 10.263C1.73504 10.0915 1.33334 9.8296 0.997976 9.494C0.66261 9.15835 0.400982 8.75641 0.229824 8.31387C0.0586649 7.87134 -0.0182574 7.39796 0.00397586 6.924C-0.0189492 6.44966 0.057455 5.97576 0.228294 5.53266C0.399133 5.08956 0.66064 4.68703 0.996064 4.35086C1.33149 4.01468 1.73343 3.75227 2.17615 3.58044C2.61886 3.40861 3.09259 3.33114 3.56698 3.353L3.56798 3.352ZM82.962 34.55V0H91.342V34.55H82.962ZM111.405 19.728C113.778 20.992 115.245 23.476 115.205 26.163C115.205 31.186 110.783 34.56 104.195 34.56C100.817 34.662 97.477 33.824 94.547 32.14C94.247 31.944 93.964 31.72 93.705 31.473L93.115 30.936L97.557 25.311L97.862 25.464C99.7953 26.5294 101.948 27.1353 104.153 27.235C106.025 27.235 107.567 26.768 107.673 26.185C107.529 26.041 106.773 25.549 103.013 24.638C100.961 24.241 98.995 23.488 97.203 22.41C95.091 21.11 93.817 18.797 93.846 16.317C93.846 11.367 97.94 8.169 104.274 8.169C107.249 8.151 110.178 8.894 112.774 10.329L113.206 10.585L108.526 16.511L108.238 16.403C107.013 15.886 105.71 15.578 104.383 15.491C102.75 15.491 101.317 15.875 101.317 16.315V16.328L101.362 16.358C102.492 16.908 103.692 17.305 104.926 17.538L105.313 17.633C107.435 18.0111 109.485 18.7176 111.39 19.727L111.405 19.728ZM80.554 0V20.854C80.554 21.014 80.564 21.194 80.564 21.374C80.5685 24.5319 79.4364 27.586 77.3747 29.978C75.3129 32.37 72.4592 33.9402 69.3352 34.4016C66.2112 34.863 63.0254 34.1847 60.3603 32.4908C57.6951 30.7969 55.7285 28.2004 54.82 25.176C53.456 29.706 49.754 33.151 45.136 34.176C40.518 35.201 35.701 33.674 32.534 30.156C32.167 29.769 31.834 29.361 31.447 28.886L31.14 28.504L30.81 27.967L29.068 25.807L27.298 23.532L23.35 18.509C22.008 16.759 19.607 16.223 17.648 17.233C15.904 18.14 14.925 20.051 15.206 21.996C15.487 23.941 16.966 25.496 18.896 25.873C20.222 26.093 21.579 25.738 22.626 24.897L23.941 23.863L24.265 23.603L29.605 30.133L29.317 30.401C27.113 32.701 24.157 34.139 20.987 34.451C16.791 34.864 12.651 33.241 9.85398 30.085L9.83398 30.063C8.61398 28.719 7.70698 27.119 7.17998 25.383C6.37298 23.013 6.27998 20.456 6.93998 18.039L7.01298 17.727C9.02898 12.173 12.753 9.009 18.059 8.319C22.749 7.639 27.433 9.602 30.236 13.425L31.046 14.462C31.132 14.579 31.213 14.688 31.299 14.786L31.316 14.806L35.636 20.333L38.854 24.387C39.5277 25.1777 40.4547 25.7103 41.4771 25.8941C42.4995 26.0779 43.554 25.9015 44.461 25.395C45.0237 25.0877 45.5174 24.6682 45.9116 24.1625C46.3058 23.6568 46.5922 23.0757 46.753 22.455C46.9049 21.8471 46.9307 21.2145 46.8289 20.5962C46.727 19.978 46.4997 19.3871 46.1608 18.86C45.822 18.3329 45.3788 17.8808 44.8586 17.5315C44.3383 17.1822 43.7521 16.9431 43.136 16.829C42.4858 16.7147 41.8187 16.7398 41.1789 16.9027C40.5392 17.0656 39.9413 17.3626 39.425 17.774C39.081 18.04 38.66 18.38 38.171 18.782L37.847 19.05L32.512 12.57L32.762 12.3L33.04 12.012C36.925 8.082 42.872 7.038 47.863 9.412C51.213 10.999 53.746 13.919 54.843 17.462C55.918 13.972 58.395 11.088 61.681 9.497C64.967 7.906 68.766 7.752 72.171 9.072V0H80.551H80.554Z"></path>
+              </svg>
+              One of the challenges of working with social media content is that not all images are professionally shot on
+              a
+              camera. Brands and businesses also want to tap into user-generated content shot by everyday people like you
+              and me, and we were finding that this meant the end use for those images was restricted because they were a
+              bit small.
+            </div>
+          </div>
+        </div>
+
+        <div class="relative pb-8 md:pb-16 mt-4 md:mt-24">
+          <img class="md:h-[32rem] rounded-xl shadow-md ml-auto" src="/assets/UN.jpg" alt="">
+          <div class="flex flex-col md:absolute bottom-0">
+            <h1 class="p-4 text-4xl font-medium capitalize text-gray-600">Print at any scale</h1>
+            <div class="rounded-xl bg-gray-800 md:w-[48rem] p-8 text-lg text-gray-200 shadow-xl">
+              <svg class="h-8 mb-4 fill-gray-300" viewBox="0 0 43 36" fill="none">
+                <path
+                  d="M22 1c-2 0-5 1-7 2h1c1-1 4-2 6-2v3c-2 0-4 0-5 1h0c1 0 3-1 5-1v3c-1 0-3 0-4 1h0c-1 0-2 1-2 1l-2-1 3-3c-1 1-2 1-3 2l-2-2c1-1 2-1 4-2h-1c-3 1-5 3-6 6h0c-2 3-2 7-1 11h0v-4h2c0 1 0 2 1 3h0v-3h2v1h-1v1 1h-1 0-1 0-1 0c-1 0 0 0 0 0v1c-1 0 0 0 0 0v1h0v-1 1h2v1h1v1h1v1l-1 2c-2-2-3-4-4-6h0c1 4 4 7 8 9v-1c-2 0-3-1-4-2l2-2c1 1 2 2 3 2h0c-1-1-2-1-3-2v-1c0 1 1 1 1 1h0l1-1h1s1 0 1 1l1-1c-1 0-2 0-3-1h0l2-2s1 1 2 1h1c0 1-1 1-1 1h0 0 0v1h0v1h2-4c1 0 3 0 4 1v2c-2 0-3 0-5-1h0c2 1 3 1 5 1v3c-2 0-4-1-6-2v1c7 3 16 0 19-7h0c2-4 2-8 1-12-2-3-5-6-9-8h0c-1-1-3-1-5-1zm0 0c2 0 4 1 5 1h0c2 1 4 2 5 3l-2 2V6h0-1V5h-1 0-2l1 1h1v2h1v1h-1V8h-1V7v1 1c0-1 0-1-1-1h1V7h-1s0 1 0 0v1s0-1-1-1h0-3V4c2 0 3 1 4 1h0c-1-1-2-1-4-1V1zm3 1h0-1 1 0zm0 0h0v1-1zM11 2C9 3 8 4 7 5S6 7 6 8c1-1 2-1 2-2 1-1 2-3 3-4h0zm22 0c1 1 2 3 3 4 0 1 1 1 2 2 0-1 0-2-1-3s-2-2-4-3h0zm-9 1h0-1 2zm-1 0h0-1 1v1h1l-1-1h0zM7 4L5 6c-1 1-1 3-1 5v1c0-1 1-1 2-2s3-2 3-4L6 9c-1 0-1 1-1 1h0V9c1-2 0-4 2-5h0zm30 0c2 1 1 3 2 5v1s0-1-1-1l-3-3c0 2 2 3 3 4s2 1 2 2v-1c0-2 0-4-1-5l-2-2zm-8 1h0zm-5 0h0zm1 0h-1 1 0zm-1 0h0zm0 0h0 0zm-4 0v1h1c0-1-1-1-1-1h0zm12 1c2 1 3 3 3 4h0c1 2 1 4 1 5h-2c0-1-1-2-1-4v-1h-1V9h-1V8h0V7l1-1zm-8 0h0 0zM12 6l2 1c-1 1-2 2-3 4 0 1-1 3-1 4H8c0-2 0-4 1-6h0l3-3zm13 0v1h1-1V6v1-1zm-8 0v1-1zM4 7c-1 1-2 3-2 5s1 3 1 5c1-2 2-3 3-5 1-1 1-2 1-3 0 1 0 1-1 1-1 1-2 3-2 4l-1 1 1-2c0-2-1-4 0-6h0zm36 0c1 2 0 4 0 6l1 2c-1 0-1-1-1-1 0-1-1-3-2-4-1 0-1 0-1-1 0 1 0 2 1 3 0 2 2 3 3 5 0-2 1-3 1-5s-1-4-2-5h0zM22 7v3h-3l1 1c0-1 1-1 2-1v2c-1 0-1 1-1 1h0v-1 1h-1l-2-1c1-1 1-1 2-1l-1-1c0 1-1 1-1 1l-2-2c2-1 4-2 6-2h0zm0 0c1 0 2 0 3 1h1c1 0 1 1 1 1h1l-2 2c-1-1-2-1-4-1V7zm-8 1l1 1c0 1-1 2-1 3h0c-1 1-1 2-1 3h-2c0-2 1-5 3-7h0zm15 1h1v1h1v1h1 1v4h-2v-2h0-1v-1h0v-1s-1 0-1-1h0V9zm1 2h0zM19 9h1zm0 0h0zm10 0h0zm-13 1l2 2c-1 0-1 0-1 1h-1 0v1h0-1v1h0-2c0-2 1-4 3-5h0zm12 0h1v1h1v1h-1 1v2h1c-1 1-1 0-1 0v1h1-2 1v-1h-1 1s0-1-1-1h0v1s-1 0-1-1h1-2v-1h-1l2-2zm2 0h0zm-8 0c2 0 3 1 4 2h0c0-1-1-1-1-1v1c0 1-1 0 0 0h0-1v1h-1v-1 1l-1-1v-2zm8 1h1zm-1 0h0 0zm0 0h0zm0 0h-1v1h1v-1zm0 0h0zm0 0h0v1-1zm2 0v1c-1 0 0 0 0 0v1-2zm-4 1h0 0zm-2 0h-1 1zm-7 0l1 1h-2l1-1zm6 0h0zm0 0h0zm-3 0h1zm1 0h0 0zm0 0h1zm-1 0h0zm3 0h0zm3 0h0zm-1 0h1l-1 1s-1 0-1-1h1zm-3 0h0zm-2 0h0zm0 0h0zm2 0h0zm5 0h-1 1zm-1 0v1h-1v-1h1zM2 12c-1 1-1 1-1 2s0 3 1 4c0 2 2 3 2 4h1c-1 0-1-1 0-2 0-1 0-2 1-4v-3c0 1 0 1-1 2s-2 3-1 5v1c-1-1-1-2-1-3 0-2-2-3-1-6h0zm40 0c1 3-1 4-1 6 0 1 0 2-1 3v-1c1-2 0-4-1-5s-1-1-1-2v3c1 2 1 3 1 4 1 1 1 2 0 2h1c0-1 2-2 2-4 1-1 1-3 1-4s0-1-1-2h0zm-20 1h0 0 0v1h1 0v1-1 1h0v1h1v1h0-1c0 1-1 1-1 1h0-2v-1h1 1v-1h-1v-1 1h0v1h-1 0-1s0-1 1-1c0 1-1 0-1 0h0v-1l1 1h-1 1v-1c0 1 0 0 0 0h1c-1-1-1-1 0-1h0 1c-1 0 0-1 0-1h0-1 1zm9 1h0zm0 0h0zm-16 1h1-1zm6 0h0 0-1v1h0v1-1h1v-1h0zm9 0h0zm0 0h0-1 1 0zm1 1h2c0 1 0 3-1 4h0c0 1-1 2-2 3h0v-1h-1v1l-1-1c2-2 3-4 3-6h0zm3 0h2c0 2 0 4-1 6h0l-3 3-2-1 3-3c0-2 1-4 1-5h0zm-5 0h2c0 1-1 2-1 3s-1 2-2 2h0v-1 1h-1 1v-1h0v-1h-1v1-1s1 0 1-1h1c0-1 1 0 1 0v-1h-1v-1zm-16 0h1 0v1h-1v-1zm2 0h1v1c-1 0 0 0 0 0h0v1c1 0 1 1 2 2l-2 1h-1v-2-1l-1-1v-1h1 0zm4 0h0-1 1zm4 0h0v1-1zm-8 0h0v1h1v-1h-1zm7 0v1-1zm-6 1h2v1-1s1 0 0 1h1v-1l1 1-2 1c-1 0-1-1-2-2h0zm14 0h0zm-14 0h0zm0 0h-1v1h1v-1zm5 1h0 1zm2 0h0zm-3 0s1 1 2 1h0v1h0-1v1h1-1-1c-1 0-1-1-2-1l2-2zM6 18c0 1-1 3-1 4s0 2 1 3c0 0-1 0-1-1-1-2-4-3-4-6v4l3 3c1 1 3 1 4 2-1 0-1-1-1-1-1-3 0-6-1-8h0zm32 0c-1 2 0 5-1 8 0 0 0 1-1 1 1-1 3-1 4-2l3-3v-4c0 3-3 4-4 6 0 1-1 1-1 1 1-1 1-2 1-3s-1-3-1-4h0zm-13 0h1s0 1 0 0v1h-1v-1zm-9 0h0zm18 0h0zm-18 0v1-1zm7 1h0 0-1 1 0zm-7 0h0zm5 0h1zm-5 0h-1 1zm9 0h0 0v1h-1 1l-1 1h-1-1v-1h2 0v1-1h0v-1h1zm10 1h0zm0 0h0zm-7 0h0zm-3 0h0zm10 0h0zm0 0v1-1zm-10 0l1 1h1 0-2v-1zm-2 0v1-1zM9 21h0v1-1zm22 0v1-1zm0 1h0 0zm-3 0l1 1v1h1c-1 0-1 1-2 1h0v-1h1v-1h-1v-1zm-18 0h0v1-1h0zm-3 0c1 2 0 4 2 6 0 1 1 1 1 1h0-1c-2-2-5-2-7-5 1 2 2 4 4 5s4 1 6 2c-2-2-2-4-3-6 0-1-1-2-2-3h0zm30 0c-1 1-2 2-2 3-1 2-1 4-3 6 2-1 4-1 6-2s3-3 4-5c-2 3-5 3-7 5h-1s1 0 1-1c2-2 1-4 2-6h0zm-23 1h0-1 1zm8 1h1-1zm8 0l2 2c-1 1-2 2-3 2-2 1-5 2-7 2v-3h4 1l1-1c1-1 2-1 2-2h0zm-7 0h1v1 1h1c-1 1-2 1-3 1v-3h1zm-3 1h0 0zm1 1h0 0 0zm-8 0v1h1l-1-1zm-3 1c1 1 1 3 3 4h2c-4 0-7 0-9-2 0 2 2 3 3 3 3 1 5 0 7 0 1 0 1 0 1-1-1 0-2 0-3-1s-3-2-4-3h0zm24 0c-1 1-3 2-4 3s-2 1-3 1c0 1 0 1 1 1 2 0 4 1 7 0 1 0 3-1 3-3-2 2-5 2-7 2h-1 1c2-1 2-3 3-4h0zm-14 4c-2 0-4 1-6 2-1 1-4 1-5 0 1 0 2 1 3 1 1 1 4 1 5 0s2-2 4-2c-2 1-3 2-5 3l1 1c2-1 3-3 5-4 2 1 3 3 5 4l1-1c-2-1-3-2-5-3h1c1 0 2 1 3 2s4 1 5 0c1 0 2-1 3-1-1 1-4 1-5 0-2-1-4-2-6-2-1 0-1 0-2 1-1-1-1-1-2-1h0z"
+                  stroke="none" fill-rule="nonzero"></path>
+              </svg>
+              AI Enhance has greatly contributed to the production of the photo exhibition. Thanks to timely work of
+              Researcher we were able to ensure the best quality of the campaign’s images that were
+              printed and exhibited on large-size canvases.
+            </div>
+          </div>
+        </div>
+
+        <div class="relative pb-8 md:pb-16 mt-4 md:mt-24">
+          <img class="md:h-[32rem] rounded-xl shadow-md" src="/assets/SC.jpg" alt="">
+          <div class="flex flex-col md:absolute bottom-0 right-0">
+            <h1 class="ml-auto p-4 text-4xl font-medium capitalize text-gray-600 ">Prepare your product images</h1>
+            <div class="rounded-xl bg-gray-800 md:w-[48rem] p-8 text-lg text-gray-200 shadow-xl">
+              <svg class="h-12 mb-4 fill-gray-300" viewBox="0 0 48 48" fill="none">
+                <path
+                  d="M23.997 0C37.2495 0 47.994 10.746 47.994 24C47.994 37.254 37.2495 48 23.997 48C10.7445 48 0 37.2555 0 24C0 10.7445 10.7445 0 23.997 0ZM28.092 15.345L27.462 15.354C26.052 15.414 25.206 16.14 24.942 17.5095C24.8553 17.9342 24.8081 18.3661 24.801 18.7995V29.1975C24.805 29.6788 24.8593 30.1584 24.963 30.6285C25.2255 31.8585 26.0505 32.5425 27.3 32.643C27.54 32.6625 27.783 32.6625 28.026 32.6625H33.186L35.055 32.667L38.787 32.664C40.077 32.664 40.983 31.9785 41.2245 30.7095C41.385 29.8635 41.4045 28.977 41.3655 28.11C41.3055 27.165 40.6155 26.64 39.6735 26.679C38.7315 26.718 38.2425 27.243 38.163 28.209C38.103 28.959 38.103 28.959 37.296 28.959H30.828C30.2235 28.959 29.619 28.9785 29.013 28.959C28.449 28.9395 28.248 28.758 28.146 28.209C28.086 27.8865 28.065 27.585 28.065 27.264V20.715C28.065 20.514 28.065 20.292 28.1055 20.07C28.2255 19.185 28.3455 19.062 29.2755 19.062H37.35C37.9545 19.062 38.1 18.9615 38.175 19.8075C38.235 20.835 38.775 21.3195 39.747 21.3195C40.755 21.339 41.319 20.8155 41.4 19.7895C41.4365 19.3334 41.443 18.8754 41.4195 18.4185C41.3385 16.2825 40.3095 15.3345 38.3175 15.3555L35.3355 15.3645L29.3715 15.3555C28.7475 15.3555 28.1025 15.336 27.477 15.3555L28.092 15.345ZM20.2695 15.333C16.824 15.3135 13.3995 15.3135 9.954 15.333C8.199 15.3525 7.074 16.26 6.789 17.9535C6.489 19.7085 6.489 21.4785 6.7695 23.2335C7.0305 24.8055 7.9995 25.6935 9.57 25.8135C10.617 25.8945 11.67 25.8945 12.753 25.8945H18.939C19.6035 25.914 19.8465 26.1165 19.926 26.7795C19.9625 27.1408 19.969 27.5046 19.9455 27.867C19.905 28.713 19.6455 28.956 18.7755 28.956H9.9705C9.93 28.614 9.8895 28.3515 9.8505 28.071C9.75 27.144 9.246 26.6805 8.3205 26.661C7.395 26.6415 6.7905 27.0435 6.6885 27.951C6.6075 28.701 6.6285 29.5035 6.729 30.2685C6.951 31.881 7.797 32.6265 9.4095 32.6265H19.8645C21.7185 32.6265 22.7655 31.719 23.0685 29.9055C23.3505 28.3155 23.3085 26.7015 23.109 25.1295C22.848 23.0145 21.7185 22.1265 19.563 22.1265H10.839C10.275 22.1265 10.0335 21.9465 9.972 21.381C9.91167 20.8522 9.91167 20.3183 9.972 19.7895C10.032 19.2255 10.2345 19.0845 10.7775 19.044H11.2215L19.281 19.0845C19.461 19.0845 19.6635 19.104 19.905 19.125C19.9245 19.425 19.9455 19.725 19.986 19.992C20.067 20.496 20.268 20.919 20.736 21.162C21.885 21.762 23.073 21.102 23.1735 19.812C23.214 19.2075 23.214 18.603 23.154 17.997C22.974 16.203 22.026 15.3375 20.253 15.3375L20.2695 15.333Z"></path>
+              </svg>
+              One of the challenges of working with social media content is that not all images are professionally shot on
+              a
+              camera. Brands and businesses also want to tap into user-generated content shot by everyday people like you
+              and me, and we were finding that this meant the end use for those images was restricted because they were a
+              bit small. By using AI we’re able to provide high res content that can be used in print.
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article class="text-white">
+
+      <section class="md:container mx-4 md:mx-auto md:px-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="col-span-1 hidden md:flex">
+            <div class="flex flex-col m-auto space-y-4">
+
+              <p class="text-4xl font-bold">Old photos</p>
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Our product will increase your old photos quality. Using powerful AI with high-accuracy, make your old photo have high-resolution, your black-and-white photo become colorful, and cleaning noise from your photo.</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span
+                  class="p-4">Color Restoration turning black-and-white old photo into colorful photo and more detail.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1 p-16">
+            <image-comparison-component
+              class="rounded-2xl shadow-xl"
+              left_src="/assets/recolor_sample_2_lr.png"
+              right_src="/assets/recolor_sample_2_hr.png">
+            </image-comparison-component>
+          </div>
+          <div class="col-span-1 md:hidden">
+            <div class="flex flex-col m-auto space-y-4">
+
+              <p class="text-4xl font-bold">Old photos</p>
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Our product will increase your old photos quality. Using powerful AI with high-accuracy, make your old photo have high-resolution, your black-and-white photo become colorful, and cleaning noise from your photo.</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span
+                  class="p-4">Color Restoration turning black-and-white old photo into colorful photo and more detail.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="md:container mx-4 md:mx-auto md:px-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="col-span-1 p-16">
+            <image-comparison-component
+              class="rounded-2xl shadow-xl"
+              left_src="/assets/pro_sample_1_lr.png"
+              right_src="/assets/pro_sample_1_hr.png">
+            </image-comparison-component>
+          </div>
+          <div class="col-span-1 flex">
+            <div class="flex flex-col m-auto space-y-4">
+
+              <p class="text-4xl font-bold">Creative Professionals</p>
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Resize without quality loss for any web and print format.</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Effortlessly enhance low quality images to save time for more creative tasks.</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Upscale anything from oil paintings to digital art, from portraits to landscapes,<br>
+              from logos to product images.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="md:container mx-4 md:mx-auto md:px-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="col-span-1 hidden md:flex">
+            <div class="flex flex-col m-auto space-y-4">
+
+              <p class="text-4xl font-bold">E-Commerce</p>
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span
+                  class="p-4">Increase conversion rates of your e-commerce business with crisp and clear images.</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Distribute and sell faster meeting resolution requirements of any platform.</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Adjust colors and the light balance of your images with the help of AI without any editing skills.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1 p-16">
+            <image-comparison-component
+              class="rounded-2xl shadow-xl"
+              left_src="/assets/comerce_sample_1_lr.png"
+              right_src="/assets/comerce_sample_1_hr.png">
+            </image-comparison-component>
+          </div>
+          <div class="col-span-1 md:hidden">
+            <div class="flex flex-col m-auto space-y-4">
+
+              <p class="text-4xl font-bold">E-Commerce</p>
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span
+                  class="p-4">Increase conversion rates of your e-commerce business with crisp and clear images.</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Distribute and sell faster meeting resolution requirements of any platform.</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Adjust colors and the light balance of your images with the help of AI without any editing skills.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="md:container mx-4 md:mx-auto md:px-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="col-span-1 p-16">
+            <image-comparison-component
+              class="rounded-2xl shadow-xl"
+              left_src="/assets/ever_sample_1_lr.png"
+              right_src="/assets/ever_sample_1_hr.png">
+            </image-comparison-component>
+          </div>
+          <div class="col-span-1 md:flex">
+            <div class="flex flex-col m-auto space-y-4">
+
+              <p class="text-4xl font-bold">Everyone</p>
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Coloring your old greyscale image with just a single click</span>
+              </div>
+
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Enchance your low quality image quality to get a crystal clear view of your image</span>
+              </div>
+              <div class="flex flex-row group ml-4">
+                <div class="w-1 bg-gray-700 rounded-full group-hover:bg-blue-500 duration-500"></div>
+                <span class="p-4">Upgrade your image resolution for any purpose</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+    <article class="text-center text-white h-screen flex">
+      <div class="flex flex-col m-auto">
+        <p class="font-light text-2xl">Soo... What You Waiting For ?</p>
+        <p class="font-light">Try our service right now it's <span class="font-medium">Free!!!</span></p>
+        <p routerLink="/Console"
+           class="mt-4 rounded-xl outline outline-1 py-2 px-8 mx-auto animate-none hover:bg-white hover:cursor-pointer hover:text-black">
+          Go to Console</p>
+      </div>
+    </article>
+  </div>
+</div>

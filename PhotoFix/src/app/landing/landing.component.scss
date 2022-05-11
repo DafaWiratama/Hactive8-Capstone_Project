@@ -1,0 +1,15 @@
+.cursor {
+  animation: cursor 0.4s linear infinite alternate;
+  will-change: opacity;
+}
+
+@keyframes cursor {
+  0%,
+  40% {
+    opacity: 1
+  }
+  60%,
+  100% {
+    opacity: 0
+  }
+}

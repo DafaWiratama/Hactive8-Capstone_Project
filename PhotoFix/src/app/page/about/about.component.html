@@ -1,0 +1,93 @@
+<app-navbar class="flex-initial fixed top-0 z-50 w-full"></app-navbar>
+
+<div class="container mx-8 md:mx-auto flex flex-row space-x-8 justify-center mt-48">
+  <div
+    class="relative h-72 w-64 rounded-lg shadow-xl shadow-neutral-800 bg-gray-700 overflow-hidden group transition duration-1000">
+    <img src="assets/person/crismanto.png" alt=""/>
+    <div
+      class="flex w-full absolute bottom-0 px-8 py-4 bg-gradient-to-t from-gray-200 pt-6 visible group-hover:invisible transition duration-500">
+      <p class="mx-auto font-medium text-gray-900">Chrismanto Darmawan S.</p>
+    </div>
+    <div
+      class="flex flex-col w-full absolute top-0 p-4 invisible group-hover:visible group-hover:bg-gray-900 group-hover:opacity-80 duration-500 h-full">
+      <p class="mx-auto font-medium text-gray-200">Chrismanto Darmawan S.</p>
+      <div class="flex-auto">
+        <p class="mx-auto text-center font-light mt-4 text-gray-200">I am a geophysical engineering graduate with 2 years experience in the HSSE, and now enthusiast about data science
+        </p>
+      </div>
+      <div class="flex space-x-4">
+        <a href="https://www.linkedin.com/in/crismanto-darmawan-781456130/"
+           class="flex-auto outline outline-1 outline-white text-white rounded text-center hover:bg-white py-1 hover:text-black cursor-pointer">Linkedin</a>
+        <a href="mailto:crismanto.darmawan@gmail.com"
+           class="flex-auto outline outline-1 outline-white text-white rounded text-center hover:bg-white py-1 hover:text-black cursor-pointer">Mail</a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="relative h-72 w-64 rounded-lg shadow-xl shadow-neutral-800 bg-gray-700 overflow-hidden group transition duration-1000">
+    <img class="object-cover h-full" src="assets/person/wiratama.png" alt=""/>
+    <div
+      class="flex w-full absolute bottom-0 px-8 py-4 bg-gradient-to-t from-gray-200 pt-6 visible group-hover:invisible transition duration-500">
+      <p class="mx-auto font-medium text-gray-900">Dafa Wiratama</p>
+    </div>
+    <div
+      class="flex flex-col w-full absolute top-0 p-4 invisible group-hover:visible group-hover:bg-gray-900 group-hover:opacity-80 duration-500 h-full">
+      <p class="mx-auto font-medium text-gray-200 text-center justify-center">Dafa Wiratama
+      </p>
+      <div class="flex-auto">
+        <p class="mx-auto text-center font-light mt-4 text-gray-200">Ex. Android and Angular Developer with Passion in Data Science and Certified Tensorflow Developer</p>
+      </div>
+      <div class="flex space-x-4">
+        <a href="https://www.linkedin.com/in/wiratama13/"
+           class="flex-auto outline outline-1 outline-white text-white rounded text-center hover:bg-white py-1 hover:text-black cursor-pointer">Linkedin</a>
+        <a href="mailto:dafawiratama13@gmail.com"
+           class="flex-auto outline outline-1 outline-white text-white rounded text-center hover:bg-white py-1 hover:text-black cursor-pointer">Mail</a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="relative w-64 h-72 rounded-lg shadow-xl shadow-neutral-800 bg-gray-700 overflow-hidden group transition duration-1000">
+    <img src="assets/person/fadli.png" alt=""/>
+    <div
+      class="flex w-full absolute bottom-0 px-8 py-4 bg-gradient-to-t from-gray-200 pt-6 visible group-hover:invisible transition duration-500">
+      <p class="mx-auto font-medium text-gray-900">Miftahul Fadl</p>
+    </div>
+    <div
+      class="flex flex-col w-full absolute top-0 p-4 invisible group-hover:visible group-hover:bg-gray-900 group-hover:opacity-80 duration-500 h-full">
+      <p class="mx-auto font-medium text-gray-200">Miftahul Fadl</p>
+      <div class="flex-auto">
+        <p class="mx-auto text-center font-light mt-4 text-gray-200">A mathematics education graduate who aspires to become a researcher.
+        </p>
+      </div>
+      <div class="flex space-x-4">
+        <a href="https://www.linkedin.com/in/muhammad-miftahul-fadl/"
+           class="flex-auto outline outline-1 outline-white text-white rounded text-center hover:bg-white py-1 hover:text-black cursor-pointer">Linkedin</a>
+        <a href="mailto:miftahulfadl17@gmail.com"
+           class="flex-auto outline outline-1 outline-white text-white rounded text-center hover:bg-white py-1 hover:text-black cursor-pointer">Mail</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-8 md:mx-auto py-4 pb-64">
+  <p class="text-2xl font-bold text-white">Developers</p>
+  <p class="mt-4 text-gray-200">Our team is engaged in data science, data analysts, machine learning engineers, and
+    artificial intelligence. This photofix project was created to fulfill the hacktiv8 bootcamp final project. If there
+    is a bug in the photofix application, please contact us.</p>
+
+  <p class="text-2xl font-bold text-white mt-8">Background</p>
+  <p class="mt-4 text-gray-200">Our background in making the photofix application is because the number of product
+    photos has low resolution, The quality of the photos decreases when sent via the short message application, Old
+    photos that are starting to get damaged with age, Want to revive old black-and-white photo memories</p>
+
+  <p class="text-2xl font-bold text-white mt-8">Mentor</p>
+
+  <div class="flex flex-row space-x-8 justify-center mt-8">
+    <a class="flex flex-col" href="{{mentor.github}}" *ngFor="let mentor of mentors">
+      <img class="w-48 rounded-xl shadow-lg" src="{{mentor.image}}" alt=""/>
+      <span class="w-full text-center text-white mt-2">{{mentor.name}}</span>
+    </a>
+  </div>
+
+  <p class="mt-4 text-gray-200">Special Thanks to our Mentor who guide and teach us about Data Science</p>
+</div>

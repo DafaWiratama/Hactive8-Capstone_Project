@@ -1,0 +1,4 @@
+waitress
+flask-cors
+flask
+tensorflow-cpu
